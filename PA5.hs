@@ -47,7 +47,7 @@ count func (x:xs)
           | func x = 1 + count func xs
           | otherwise = 0 + count func xs
 
-insert :: (Ord a) => a -> [a] -> [a]
+insert :: (Ord a) =>  a-> [a] -> [a]
 insert val [] = [val]
 insert val (x:xs)
           | val <= x = val:(x:xs)
@@ -57,10 +57,11 @@ insertionSort :: (Ord a) => [a] -> [a]
 insertionSort [] = []
 insertionSort (x:xs) = insert x (insertionSort xs)
 
--- todo: combine
 combine :: (a -> a -> a) -> [a] -> [a] -> [a]
-combine lst[][] = []
-combine lst 
+combine func [][] = []
+combine func [] _ = []
+combine func _ [] = []
+combine func (x:xs)(y:ys) = func x y : combine func xs ys
 
 minimum' :: (Ord a) => [a] -> a
 minimum' [] = error "no elements in array"
