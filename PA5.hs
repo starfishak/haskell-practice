@@ -58,7 +58,9 @@ insertionSort [] = []
 insertionSort (x:xs) = insert x (insertionSort xs)
 
 -- todo: combine
--- combine :: (a -> a -> a) -> [a] -> [a] -> [a]
+combine :: (a -> a -> a) -> [a] -> [a] -> [a]
+combine lst[][] = []
+combine lst 
 
 minimum' :: (Ord a) => [a] -> a
 minimum' [] = error "no elements in array"
@@ -94,26 +96,7 @@ divisors (x:xs) = div' x : divisors xs
      where div' x = [d | d <- [1..(x-1)], x `mod` d == 0]
 
 prime :: [Int] -> [Bool]
--- prime lst = map (\x -> if (length (divisors x) == 1 True) else (False)) lst
 prime lst = [ check x | x <- lst]
-          where check val
-                    | length (divisors [val]) () == 1 = True
+          where check val 
+                    | length (divisors [val]!!0) == 1 = True
                     | otherwise = False
-
--- prime [] = [False]
--- prime (x:xs)
---           | length divisors xs == 1 = [True] : prime xs
---           | otherwise = false
-
-
--- todo: prime
--- use divisors
--- prime :: [Int] -> [Bool]
--- prime [] = [False]
--- prime (x:xs) 
---           | x `mod` 2 == 0 = [False] : prime xs
---           | otherwise = [True] : prime xs
--- prime (x:xs) 
---           | [d | d <- [1..(x-1)], x `mod` 2 == 0] == False = [False]
---           | otherwise = [True]
--- prime lst = map (\x -> x `mod` 2) lst
