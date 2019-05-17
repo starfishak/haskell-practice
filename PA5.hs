@@ -93,6 +93,16 @@ divisors [] = []
 divisors (x:xs) = div' x : divisors xs
      where div' x = [d | d <- [1..(x-1)], x `mod` d == 0]
 
+prime :: [Int] -> [Bool]
+-- prime lst = map (\x -> if (length (divisors x) == 1 True) else (False)) lst
+prime lst = [if (length (divisors x == 1) True) else False | x <- lst]
+
+-- prime [] = [False]
+-- prime (x:xs)
+--           | length divisors xs == 1 = [True] : prime xs
+--           | otherwise = false
+
+
 -- todo: prime
 -- use divisors
 -- prime :: [Int] -> [Bool]
