@@ -95,7 +95,10 @@ divisors (x:xs) = div' x : divisors xs
 
 prime :: [Int] -> [Bool]
 -- prime lst = map (\x -> if (length (divisors x) == 1 True) else (False)) lst
-prime lst = [if (length (divisors x == 1) True) else False | x <- lst]
+prime lst = [ check x | x <- lst]
+          where check val
+                    | length (divisors [val]) () == 1 = True
+                    | otherwise = False
 
 -- prime [] = [False]
 -- prime (x:xs)
